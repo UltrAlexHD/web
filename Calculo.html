@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario y Conversor de Moneda</title>
+<link rel="stylesheet" href="archivos css/calculo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Inventario y Conversor de Moneda</h1>
+  
+    <div class="input-container">
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" placeholder="Ingrese cantidad" oninput="calcular()">
+    </div>
+  
+    <div class="input-container">
+      <label for="moneda">Moneda:</label>
+      <select id="moneda" onchange="calcular()">
+        <option value="MXN">Pesos Mexicanos (MXN)</option>
+        <option value="USD">Dólares Americanos (USD)</option>
+        <option value="COP">Pesos Colombianos (COP)</option>
+      </select>
+    </div>
+  
+    <div class="result-container" id="resultado"></div>
+
+    <button class="return-button" onclick="regresarInicio()">Regresar a inicio</button>
+  </div>
+  
+  <script>
+    function calcular() {
+      var cantidad = parseFloat(document.getElementById('cantidad').value);
+      var moneda = document.getElementById('moneda').value;
+      
+      // Tasas de cambio
+      var tipoCambioMXNtoUSD = 18; // 1 USD = 18 MXN
+      var tipoCambioUSDtoCOP = 3630; // 1 USD = 3630 COP
+      
+      var cantidadMXN, cantidadUSD, cantidadCOP;
+      
+      // Convertir la cantidad ingresada a pesos mexicanos
+      if (moneda === 'MXN') {
+        cantidadMXN = cantidad;
+      } else if (moneda === 'USD') {
+        cantidadMXN = cantidad * tipoCambioMXNtoUSD;
+      } else if (moneda === 'COP') {
+        cantidadMXN = cantidad / tipoCambioUSDtoCOP * tipoCambioMXNtoUSD;
+      }
+      
+      // Calcular conversiones
+      cantidadUSD = cantidadMXN / tipoCambioMXNtoUSD;
+      cantidadCOP = cantidadUSD * tipoCambioUSDtoCOP;
+      
+      // Aplicar descuento si la cantidad en pesos colombianos es menor que 50000
+      var descuento = cantidadCOP < 50000 ? 1000 : 0;
+      cantidadCOP -= descuento;
+      
+      var resultado = "Cantidad en Dólares Americanos (USD): <span class='amarillo'>" + cantidadUSD.toFixed(2) + "</span><br>";
+      resultado += "Cantidad en Pesos Colombianos (COP): <span class='azul'>" + cantidadCOP.toFixed(2) + "</span><br>";
+      
+      if (moneda !== 'MXN') {
+        resultado += "Cantidad en Pesos Mexicanos (MXN): <span class='verde'>" + cantidadMXN.toFixed(2) + "</span><br>";
+      }
+      
+      document.getElementById('resultado').innerHTML = resultado;
+    }
+
+    function regresarInicio() {
+      window.open('inicio.html', '_blank');
+    }
+  </script>
+</body>
+</html>
