@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Fondo claro */
+    color: #000000; /* Texto negro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 100px;
+}
+
+h2 {
+    text-align: center;
+    color: #2a8ea7; /* Azul brillante */
+}
+
+label {
+    font-weight: bold;
+    color: #000000; /* Texto negro */
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #1b6e89; /* Azul más oscuro para el borde */
+    border-radius: 4px;
+    background-color: #eeeeee; /* Fondo gris suave para inputs */
+    color: #000000; /* Texto negro */
+}
+
+input[type="submit"] {
+    background-color: #2a8ea7; /* Azul brillante */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #14506b; /* Azul más oscuro al pasar el cursor */
+}
+
+.mensaje-registro {
+    text-align: center;
+    color: #000000; /* Texto negro */
+    display: none;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
