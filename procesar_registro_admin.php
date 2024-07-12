@@ -3,11 +3,11 @@ session_start();
 
 // Verificar si la solicitud es mediante el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Establecer la conexión a la base de datos (reemplaza con tus propias credenciales)
-    $servername = "localhost"; // Cambia esto a la dirección del servidor MySQL si es necesario
-    $username = "root";
-    $password = "escuadron99";
-    $database = "registro";
+    // Establecer la conexión a la base de datos con las credenciales proporcionadas
+    $servername = "sql204.infinityfree.com"; // Nombre del servidor MySQL
+    $username = "if0_36879343"; // Nombre de usuario MySQL
+    $password = "m4ph6uupmH"; // Contraseña MySQL
+    $database = "if0_36879343_registro"; // Nombre de la base de datos MySQL
 
     // Crear conexión
     $conn = new mysqli($servername, $username, $password, $database);
